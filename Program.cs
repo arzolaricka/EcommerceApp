@@ -1,129 +1,76 @@
 ﻿using System;
-using System.Collections.Generic;
+using PaymentShippingService;
 
-namespace Ecommerceapp
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        static List<string> payment = new List<string>();
+        PaymentShippingService.PaymentShippingService service =
+            new PaymentShippingService.PaymentShippingService();
 
-        static string[] shipping = new string[5];
-        static int shipCount = 0;
-        static void Main(string[] args)
+        while (true)
         {
-            int choice = 0;
+            Console.Clear();
 
-            while (choice != 7)
+            Console.WriteLine("==== PAYMENT & SHIPPING SYSTEM ====\n");
+
+            Console.WriteLine("1  Add Payment");
+            Console.WriteLine("2  View Payments");
+            Console.WriteLine("3  Update Payment");
+            Console.WriteLine("4  Delete Payment");
+
+            Console.WriteLine("\n5  Add Shipping");
+            Console.WriteLine("6  View Shipping");
+            Console.WriteLine("7  Update Shipping");
+            Console.WriteLine("8  Delete Shipping");
+
+            Console.WriteLine("\n9  Exit");
+
+            Console.Write("\nChoice: ");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
             {
-                Console.WriteLine("\n ======PAYMENT AND SHIPPING MANAGEMENT======");
-                Console.WriteLine("1. Add Payment Method");
-                Console.WriteLine("2. View Payment Method");
-                Console.WriteLine("3. Update Payment Method");
-                Console.WriteLine("4. Add Shipping Info");
-                Console.WriteLine("5. View Shipping Info");
-                Console.WriteLine("6. Update shipping Info");
-                Console.WriteLine("7. Exit");
-                Console.WriteLine("Enter choice: ");
-                choice = Convert.ToInt32(Console.ReadLine());
+                case 1:
+                    service.AddPayment();
+                    break;
 
-                switch (choice)
-                {
-                    case 1: AddPayment(); break;
-                    case 2: ViewPayment(); break;
-                    case 3: UpdatePayment(); break;
-                    case 4: AddShipping(); break;
-                    case 5: ViewShipping(); break;
-                    case 6: UpdateShipping(); break;
-                }
-            }
-            
-        }
-         
+                case 2:
+                    service.ViewPayments();
+                    break;
 
-        static void AddPayment()
-        {
-            
-            Console.Write("Enter Payment method: ");
-            string input = Console.ReadLine();
-            payment.Add(input);
-            Console.WriteLine("Payment method added successfully. ");
-        }
+                case 3:
+                    service.UpdatePayment();
+                    break;
 
-        static void ViewPayment()
-        {
-            Console.Write("\n Payment method: ");
-            if (payment.Count == 0)
-            {
-                Console.WriteLine("No payment method added yet.");
-            }
-            else
-            {
-                for (int i = 0; i < payment.Count; i++)
-                {
-                    Console.WriteLine(i + " - " + payment[i]);
-                }
-            }
-        }
+                case 4:
+                    service.DeletePayment();
+                    break;
 
-        static void UpdatePayment()
-        {
-            ViewPayment();
-            if (payment.Count > 0)
-            {
-                Console.Write("Enter the index of the payment method to update: ");
-                int index = Convert.ToInt32(Console.ReadLine());
+                case 5:
+                    service.AddShipping();
+                    break;
 
-                Console.Write("Enter new payment method: ");
-                payment[index] = Console.ReadLine();
+                case 6:
+                    service.ViewShipping();
+                    break;
 
-                Console.WriteLine("Payment method updated successfully.");
-            }
-        }
+                case 7:
+                    service.UpdateShipping();
+                    break;
 
-        static void AddShipping()
-        {
-           if(shipCount < shipping.Length)
-            {
-                Console.Write("Enter shipping info: ");
-                shipping[shipCount] = Console.ReadLine();
-                shipCount++;
-                Console.WriteLine("Shipping info added successfully.");
-            }
-            else
-            {
-                Console.WriteLine("Shipping info limit reached. Cannot add more.");
-            }
-        }
+                case 8:
+                    service.DeleteShipping();
+                    break;
 
-        static void ViewShipping()
-        {
-            Console.WriteLine("\n ---SHIPPING INFO---");
-            if(shipCount == 0)
-            {
-                Console.WriteLine("No shipping info added yet.");
-            }
-            else
-            {
-                for (int i = 0; i < shipCount; i++)
-                {
-                    Console.WriteLine(i + " - " + shipping[i]);  
-                }
-                
-            }
-        }
+                case 9:
+                    return;
 
-        static void UpdateShipping()
-        {
-            ViewShipping();
-            if (shipCount > 0)
-            {
-                Console.Write("Enter the index of the shipping info to update: ");
-                int index = Convert.ToInt32(Console.ReadLine());
-
-                Console.Write("Enter new shipping info: ");
-                shipping[index] = Console.ReadLine();
-
-                Console.WriteLine("Shipping Info updated successfully.");
+                default:
+                    Console.WriteLine("Invalid choice.");
+                    Console.ReadKey(true);
+                    break;
             }
         }
 

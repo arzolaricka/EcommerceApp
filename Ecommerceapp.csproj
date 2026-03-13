@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PaymentShippingAppService\PaymentShippingService.csproj" />
+    <ProjectReference Include="..\PaymentShippingDataService\PaymentShippingDataService.csproj" />
+    <ProjectReference Include="..\PaymentShippingModel\PaymentShippingModel.csproj" />
+  </ItemGroup>
+
 </Project>
