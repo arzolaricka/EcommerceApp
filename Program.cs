@@ -14,17 +14,17 @@ class Program
 
             Console.WriteLine("==== PAYMENT & SHIPPING SYSTEM ====\n");
 
-            Console.WriteLine("1  Add Payment");
-            Console.WriteLine("2  View Payments");
-            Console.WriteLine("3  Update Payment");
-            Console.WriteLine("4  Delete Payment");
+            Console.WriteLine("1. Add Payment");
+            Console.WriteLine("2. View Payments");
+            Console.WriteLine("3. Update Payment");
+            Console.WriteLine("4. Delete Payment");
 
-            Console.WriteLine("\n5  Add Shipping");
-            Console.WriteLine("6  View Shipping");
-            Console.WriteLine("7  Update Shipping");
-            Console.WriteLine("8  Delete Shipping");
+            Console.WriteLine("\n5. Add Shipping");
+            Console.WriteLine("6. View Shipping");
+            Console.WriteLine("7. Update Shipping");
+            Console.WriteLine("8. Delete Shipping");
 
-            Console.WriteLine("\n9  Exit");
+            Console.WriteLine("\n9. Exit");
 
             Console.Write("\nChoice: ");
 
